@@ -145,6 +145,24 @@ reboot
 
 and check the web interface at `http://<address>:8081`
 
+## Connecting with X11 forwarding from MacOS
+
+This build of Armbian includes the X11 stuff so it should be simple to SSH with X11 forwarding. The problem is on the MacOS side as the location of `xauth` from XQuartz is non-standard.
+
+On MacOS ensure that XQuartz is running and that under `Preferences/Security` the `Authenticate connections` option is enabled.
+
+Then add the following line to your `~/.ssh/config`
+
+```
+XAuthLocation /opt/X11/bin/xauth
+```
+
+It should then be possible to connect with X11 forwarding enabled
+
+```
+ssh -X <user>@<opcamera>
+```
+
 ## Orange PI One pins
 
 ![Orange PI One pins](./orange-pi-one-pins.jpg)
