@@ -163,6 +163,13 @@ It should then be possible to connect with X11 forwarding enabled
 ssh -X <user>@<opcamera>
 ```
 
+## Viewing camera ouptut
+
+```
+sudo apt install ffmpeg
+sudo ffmpeg -f v4l2 -channel 0 -video_size 640x480 -i /dev/video0 -pix_fmt nv12 -r 30 -b:v 64k -f matroska - | ffplay -
+```
+
 ## Orange PI One pins
 
 ![Orange PI One pins](./orange-pi-one-pins.jpg)
